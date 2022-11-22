@@ -1,0 +1,87 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Categories</h4>
+    <button
+      type="button"
+      class="btn-close"
+      (click)="onClose()"
+      aria-label="Close"
+    ></button>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Category Name</mat-label>
+    <input
+      [disabled]="disableCategoryName || isEdit"
+      matInput
+      [(ngModel)]="categorydata.CategoryName"
+    />
+  </mat-form-field>
+  <div class="box">
+    <p>Add Book To List</p>
+    <form (ngSubmit)="addToList()" #f="ngForm">
+      <div id="add-book" ngModelGroup="book" #book="ngModelGroup">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  ngModel
+                  name="bookName"
+                  required
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Author</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  ngModel
+                  name="author"
+                  required
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Year</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  ngModel
+                  name="year"
+                  required
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+        Add To List
+      </button>
+    </form>
+  </div>
+
+  <div mat-dialog-actions>
+    <div class="row">
+      <div class="col">
+        <button mat-button (click)="save()">Save</button>
+      </div>
+      <div class="col">
+        <button mat-button (click)="onReset()">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>

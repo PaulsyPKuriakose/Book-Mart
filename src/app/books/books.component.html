@@ -1,0 +1,84 @@
+<br />
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-success" (click)="addCategory()">
+      Add Book Category
+    </button>
+  </div>
+</div>
+<div *ngFor="let item of categories; let i = index">
+  <hr />
+  <span class="categoryHeader">
+    <div class="row">
+      <div class="col">
+        {{ item.CategoryName }}
+      </div>
+      <div class="col-sm-1">
+        <span
+          ><img
+            (click)="addNewRow(item, i)"
+            src="assets/img/plus-svgrepo-com.svg"
+            style="height: 30%; cursor: pointer"
+        /></span>
+      </div>
+    </div>
+  </span>
+
+  <p></p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of item.Books">
+        <td>
+          {{ b.Name }}
+        </td>
+        <td>
+          {{ b.Author }}
+        </td>
+        <td>
+          {{ b.Year }}
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-md-3">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="removeItem(b.Id, item.Books, i)"
+              >
+                Remove
+              </button>
+            </div>
+            <div class="col-md-3">
+              <button
+                *ngIf="b.Id > 1"
+                type="button"
+                class="btn btn-secondary"
+                (click)="moveup(b.Id, item.Books)"
+              >
+                Move Up
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button
+                *ngIf="b.Id < item.Books.length"
+                type="button"
+                class="btn btn-secondary"
+                (click)="movedown(b.Id, item.Books)"
+              >
+                Move Down
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
