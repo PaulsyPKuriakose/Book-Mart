@@ -44,7 +44,7 @@ export class AddCategoryComponent implements OnInit {
     b.Year = this.addBookForm.value.book.year;
     b.Id = this.categorydata.Books.length + 1;
     this.categorydata.Books.push(b);
-    this.addBookForm.reset();
+    this.OnReset();
     this.isAtleastOneItemAdded = true;
   }
   Save() {
@@ -60,6 +60,7 @@ export class AddCategoryComponent implements OnInit {
   }
   OnReset() {
     this.addBookForm.reset();
+    this.addBookForm.form.markAsUntouched();
     if (!this.isEdit) {
       this.disableCategoryName = false;
       this.isAtleastOneItemAdded = false;

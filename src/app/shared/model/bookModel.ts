@@ -1,7 +1,7 @@
 export class BookModel {
-  Id: number;
-  Name: string;
-  Author: String;
-  Year: number;
-  IsChecked: boolean;
+  public Id: number;
+  public Name: string;
+  public Author: String;
+  public Year: number;
+  public IsChecked: boolean;
 }
