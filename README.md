@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Application Help
+
+Steps to Follow
+
+1. Clone Repository
+2. Perform npm install to install the project dependencies
+3. Run Application
+   Funtionalities
+4. Application have one home page where default books are listed. If user want to add more books to existing list, it can be acheived through the + button available in the top right corner of the list
+   2.User can perform Addition of book, Removal of book, Change Order of book (Move up and down) on the existing list
+5. If user wants to create new category of books, it is possible through the button -"Add Book Category"
