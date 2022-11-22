@@ -4,7 +4,7 @@
     <button
       type="button"
       class="btn-close"
-      (click)="onClose()"
+      (click)="OnClose()"
       aria-label="Close"
     ></button>
   </div>
@@ -18,7 +18,7 @@
   </mat-form-field>
   <div class="box">
     <p>Add Book To List</p>
-    <form (ngSubmit)="addToList()" #f="ngForm">
+    <form (ngSubmit)="AddToList()" #f="ngForm">
       <div id="add-book" ngModelGroup="book" #book="ngModelGroup">
         <div class="row">
           <div class="col">
@@ -77,10 +77,10 @@
   <div mat-dialog-actions>
     <div class="row">
       <div class="col">
-        <button mat-button (click)="save()">Save</button>
+        <button mat-button (click)="Save()">Save</button>
       </div>
       <div class="col">
-        <button mat-button (click)="onReset()">Reset</button>
+        <button mat-button (click)="OnReset()">Reset</button>
       </div>
     </div>
   </div>

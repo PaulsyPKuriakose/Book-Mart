@@ -19,7 +19,7 @@ export class BooksComponent implements OnInit {
     this.initialize();
   }
 
-  initialize() {
+  private initialize() {
     this.addItemstoBookList(1, 'Dune', 'Framk Herbert', 1965);
     this.addItemstoBookList(2, "Ender's Game", 'Orson Scott Card', 1985);
     this.addItemstoBookList(3, '1984', 'George Orwell', 1949);
@@ -27,7 +27,7 @@ export class BooksComponent implements OnInit {
     this.addItemstoBookList(5, 'Brave New World', 'Aldous Huxley', 1932);
     this.initializeBookCategories();
   }
-  addNewRow(catogory: BookCategoryModel, i: number) {
+  AddNewRow(catogory: BookCategoryModel, i: number) {
     const dialogRef = this.dialog.open(AddCategoryComponent, {
       width: '50%',
       data: { value: catogory },
@@ -38,7 +38,7 @@ export class BooksComponent implements OnInit {
       }
     });
   }
-  initializeBookCategories() {
+  private initializeBookCategories() {
     let bookCat = new BookCategoryModel();
     bookCat.Id = 1;
     bookCat.CategoryName = 'Default Category';
@@ -46,7 +46,12 @@ export class BooksComponent implements OnInit {
     this.categories.push(bookCat);
   }
 
-  addItemstoBookList(id: number, name: string, author: string, year: number) {
+  private addItemstoBookList(
+    id: number,
+    name: string,
+    author: string,
+    year: number
+  ) {
     let book = new BookModel();
     book.Id = id;
     book.Author = author;
@@ -55,7 +60,7 @@ export class BooksComponent implements OnInit {
     this.books.push(book);
   }
 
-  removeItem(id: number, item: BookModel[], i: number) {
+  RemoveItem(id: number, item: BookModel[], i: number) {
     item.forEach((b, index) => {
       if (b.Id === id) {
         item.splice(index, 1);
@@ -65,7 +70,7 @@ export class BooksComponent implements OnInit {
       this.categories.splice(i, 1);
     }
   }
-  movedown(id: number, item: BookModel[]) {
+  Movedown(id: number, item: BookModel[]) {
     if (id < item.length) {
       item[id - 1].Id = id + 1;
 
@@ -73,7 +78,7 @@ export class BooksComponent implements OnInit {
       item.sort((a, b) => a.Id - b.Id);
     }
   }
-  moveup(id: number, item: BookModel[]) {
+  Moveup(id: number, item: BookModel[]) {
     if (id > 1) {
       let index = id - 2;
 
@@ -86,7 +91,7 @@ export class BooksComponent implements OnInit {
     }
     item.sort((a, b) => a.Id - b.Id);
   }
-  addCategory() {
+  AddCategory() {
     const dialogRef = this.dialog.open(AddCategoryComponent, {
       width: '50%',
     });

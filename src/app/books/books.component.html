@@ -1,7 +1,7 @@
 <br />
 <div class="row">
   <div class="col">
-    <button type="button" class="btn btn-success" (click)="addCategory()">
+    <button type="button" class="btn btn-success" (click)="AddCategory()">
       Add Book Category
     </button>
   </div>
@@ -16,7 +16,7 @@
       <div class="col-sm-1">
         <span
           ><img
-            (click)="addNewRow(item, i)"
+            (click)="AddNewRow(item, i)"
             src="assets/img/plus-svgrepo-com.svg"
             style="height: 30%; cursor: pointer"
         /></span>
@@ -35,7 +35,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let b of item.Books">
+      <tr *ngFor="let b of item.Books; let in = index">
         <td>
           {{ b.Name }}
         </td>
@@ -51,27 +51,27 @@
               <button
                 type="button"
                 class="btn btn-danger"
-                (click)="removeItem(b.Id, item.Books, i)"
+                (click)="RemoveItem(b.Id, item.Books, i)"
               >
                 Remove
               </button>
             </div>
             <div class="col-md-3">
               <button
-                *ngIf="b.Id > 1"
+                *ngIf="in >= 1"
                 type="button"
                 class="btn btn-secondary"
-                (click)="moveup(b.Id, item.Books)"
+                (click)="Moveup(b.Id, item.Books)"
               >
                 Move Up
               </button>
             </div>
             <div class="col-md-4">
               <button
-                *ngIf="b.Id < item.Books.length"
+                *ngIf="in < item.Books.length - 1"
                 type="button"
                 class="btn btn-secondary"
-                (click)="movedown(b.Id, item.Books)"
+                (click)="Movedown(b.Id, item.Books)"
               >
                 Move Down
               </button>

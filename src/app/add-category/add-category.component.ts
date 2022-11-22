@@ -33,10 +33,10 @@ export class AddCategoryComponent implements OnInit {
       this.categorydata.Books = [];
     }
   }
-  onClose() {
+  OnClose() {
     this.dialogRef.close();
   }
-  addToList() {
+  AddToList() {
     this.disableCategoryName = true;
     let b = new BookModel();
     b.Author = this.addBookForm.value.book.bookName;
@@ -47,18 +47,18 @@ export class AddCategoryComponent implements OnInit {
     this.addBookForm.reset();
     this.isAtleastOneItemAdded = true;
   }
-  save() {
+  Save() {
     if (this.isAtleastOneItemAdded) {
       if (!this.isEdit) {
         this.dialogRef.close(this.categorydata);
       } else {
-        this.onClose();
+        this.OnClose();
       }
     } else {
       window.alert('No Items Added To List!!');
     }
   }
-  onReset() {
+  OnReset() {
     this.addBookForm.reset();
     if (!this.isEdit) {
       this.disableCategoryName = false;
